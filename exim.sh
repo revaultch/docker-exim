@@ -20,7 +20,9 @@ cat >/etc/exim4/passwd.client << EOF
 ${exim_password:-'*.google.com:infrastructure@example.com:<your password>'}
 EOF
 
-chown Debian-exim:adm /etc/exim4/passwd.client /etc/exim4/update-exim4.conf.conf &&\
-/etc/init.d/exim4 start &&\
+touch /var/log/exim4/mainlog && \
+chown Debian-exim:adm /var/log/exim4/mainlog && \
+chown Debian-exim:adm /etc/exim4/passwd.client && \
+/etc/exim4/update-exim4.conf.conf &&\
+/etc/init.d/exim4 start && \
 tail -f /var/log/exim4/mainlog
-
