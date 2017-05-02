@@ -23,6 +23,6 @@ EOF
 touch /var/log/exim4/mainlog && \
 chown Debian-exim:adm /var/log/exim4/mainlog && \
 chown Debian-exim:adm /etc/exim4/passwd.client && \
-/etc/exim4/update-exim4.conf.conf &&\
+chown Debian-exim:adm /etc/exim4/update-exim4.conf.conf &&\
 /etc/init.d/exim4 start && \
 tail -f /var/log/exim4/mainlog
