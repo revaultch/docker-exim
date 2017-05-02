@@ -17,7 +17,7 @@ dc_localdelivery='${exim_dc_localdelivery:-mail_spool}'
 EOF
 
 cat >/etc/exim4/passwd.client << EOF 
-'${exim_password:-'*.google.com:infrastructure@example.com:<your password>'}'
+${exim_password:-'*.google.com:infrastructure@example.com:<your password>'}
 EOF
 
 chown Debian-exim:adm /etc/exim4/passwd.client /etc/exim4/update-exim4.conf.conf &&\
